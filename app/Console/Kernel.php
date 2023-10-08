@@ -12,7 +12,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('inspire')->hourly();
+
+        $schedule->exec('hostname')->everyMinute()->sendOutputTo(storage_path('logs/hostname.log'));
     }
 
     /**
