@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::get('/', function () {
 Route::get('/hello', function () {
     return view('hello');
 });
+
+Route::get('show_request', fn(Request $request) => view('show_request', ['request' => $request, 'name' => "Steve"]));
