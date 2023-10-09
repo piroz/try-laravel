@@ -9,3 +9,6 @@
         Hello, {{ name }}.
     </div>
 @endverbatim
+
+<h2>{{ $my_share_var }}</h2>
+@include('shared.profile')
