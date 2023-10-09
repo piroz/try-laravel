@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Database\Eloquent\Model;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,5 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::share('my_share_var', 'my_share_var_value');
+        View::share('is_production', $this->app->isProduction());
+        Model::preventLazyLoading(!$this->app->isProduction());
     }
 }

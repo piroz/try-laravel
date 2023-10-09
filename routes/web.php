@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\FlightController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,9 @@ Route::get('/hello', function () {
 });
 
 Route::get('show_request', fn(Request $request) => view('show_request', ['request' => $request, 'name' => "Steve"]));
+
+Route::get('flights', [FlightController::class, 'index'])->name('flights.index');
+Route::get('flights/delete/{id}', [FlightController::class, 'delete']);
+Route::get('flights/edit/{id}', [FlightController::class, 'edit']);
+Route::get('flights/create', [FlightController::class, 'create']);
+Route::post('flights',  [FlightController::class, 'store']);
