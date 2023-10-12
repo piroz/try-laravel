@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FlightController;
+use App\Livewire\Counter;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,5 @@ Route::get('flights/delete/{id}', [FlightController::class, 'delete']);
 Route::get('flights/edit/{id}', [FlightController::class, 'edit']);
 Route::get('flights/create', [FlightController::class, 'create']);
 Route::post('flights',  [FlightController::class, 'store']);
+
+Route::get('/counter', Counter::class);
